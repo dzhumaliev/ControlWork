@@ -74,3 +74,38 @@ bike = Bicycle()
 
 print(move(car))  # Вывод: Car is driving
 print(move(bike))  # Вывод: Bicycle is pedaling
+
+
+# 4
+
+from abc import ABC, abstractmethod
+import math
+
+class Shape (ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self,  width, height):
+        super().__init__()
+        self.width = width
+        self.height = height
+    
+    def area(self):
+       return self.width * self.height
+
+class Circle(Shape):
+    def __init__(self, radius):
+        super().__init__()
+        self.radius = radius
+    
+    def area(self):
+        return math.pi * self.radius ** 2
+    
+
+rect = Rectangle(10, 5)
+circle = Circle(7)
+
+print(rect.area())
+print(circle.area())
